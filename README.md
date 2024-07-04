@@ -17,4 +17,4 @@ https://www.chess.com/terms/fen-chess
 
 ## Other Information
 I just made this as my first ever go project to learn, feel free to do anything with it. <br>
-I might look to add LeetCode puzzles to this so you can do leetcode from the terminal
+I might look to add lichess puzzles to this (from their open sourced collection) so you can do lichess puzzles from the terminal
