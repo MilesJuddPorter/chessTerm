@@ -47,7 +47,7 @@ func ParseFENRow(fenRow string) Row {
 			}
 		} else {
 			rowVals[idxToUpdate] = string(char)
-			idxToUpdate += 1
+			idxToUpdate += 1 
 		}
 	}
 	return Row{Row: rowVals}
@@ -83,18 +83,18 @@ func (cb *Chessboard) GetFormattedBoard() string {
 		}
 	}
 	SymbolMapper := map[string]string{
-		"r": "\u265C",
-		"n": "\u265E",
-		"b": "\u265D",
-		"q": "\u265B",
-		"k": "\u265A",
-		"p": "\u265F",
-		"R": "\u2656",
-		"N": "\u2658",
-		"B": "\u2657",
-		"Q": "\u2655",
-		"K": "\u2654",
-		"P": "\u2659",
+		"R": "\u265C",
+		"N": "\u265E",
+		"B": "\u265D",
+		"Q": "\u265B",
+		"K": "\u265A",
+		"P": "\u265F",
+		"r": "\u2656",
+		"n": "\u2658",
+		"b": "\u2657",
+		"q": "\u2655",
+		"k": "\u2654",
+		"p": "\u2659",
 	}
 
 	for textChar, symbolChar := range SymbolMapper {
