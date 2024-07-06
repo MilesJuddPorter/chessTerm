@@ -33,12 +33,6 @@ func getFENString() string {
 }
 
 
-// // Main for the FEN Chessboard input
-// func main() {
-// 	fenString := getFENString()
-// 	cb := NewFENChessboard(fenString)
-// 	fmt.Println("\n" + cb.GetFormattedBoard())
-// }
 func getEloRating() string {
 	// Creates an 'elo' flag that the user will input
 	elo := flag.String("elo", "100", "Elo rating for the puzzles")

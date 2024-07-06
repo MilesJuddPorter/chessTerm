@@ -6,6 +6,7 @@ import (
     "io/ioutil"
     "log"
     "os"
+    "path/filepath"
 )
 
 // Define the structure for the JSON data
@@ -24,9 +25,16 @@ type Puzzle struct {
 }
 
 func getPuzzlesByRating(elo string) map[string]Puzzle {
-	fileName := fmt.Sprintf("puzzles/%s.json", elo)
+    puzzlesDir := os.Getenv("CHESSTERM_PUZZLES_DIR")
+    if puzzlesDir == "" {
+        log.Fatal("CHESSTERM_PUZZLES_DIR environment variable is not set")
+    }
+
+    // Construct the path to the puzzle file
+    puzzleFile := filepath.Join(puzzlesDir, fmt.Sprintf("%s.json", elo))
+
     // Open the JSON file
-    jsonFile, err := os.Open(fileName)
+    jsonFile, err := os.Open(puzzleFile)
     if err != nil {
         log.Fatalf("Failed to open JSON file: %s", err)
     }
