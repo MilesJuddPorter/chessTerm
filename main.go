@@ -6,6 +6,8 @@ import (
 	"os"
 	"strings"
 	"time"
+	"flag"
+	"strconv"
 )
 
 func validateFENString(fenString string) bool {
@@ -38,10 +40,17 @@ func getFENString() string {
 // 	fmt.Println("\n" + cb.GetFormattedBoard())
 // }
 func getEloRating() string {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("What puzzle rating would you like to play? \n")
-	eloRating, _ := reader.ReadString('\n')
-	return strings.TrimSpace(eloRating)
+	// Creates an 'elo' flag that the user will input
+	elo := flag.String("elo", "100", "Elo rating for the puzzles")
+	flag.Parse()
+	elo_numeric, _ := strconv.Atoi(*elo)
+
+	if elo_numeric % 100 == 0 && elo_numeric >= 300 && elo_numeric <= 3000 {
+		return *elo
+	} else {
+		fmt.Println("Invalid puzzle rating. Please enter a valid rating. [300-3000]. \ne.g. chessTerm -elo 1200")
+		return "0"
+	}
 }
 
 func getMove() string {
@@ -59,6 +68,9 @@ func getMove() string {
 // Main for puzzles
 func main() {
 	elo := getEloRating()
+	if elo == "0" {
+		return
+	}
 	puzzles := getPuzzlesByRating(elo)
 
 	var cb *Chessboard
