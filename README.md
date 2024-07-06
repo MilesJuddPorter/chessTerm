@@ -1,20 +1,26 @@
-# Chess FEN Visualizer with Go
+# Chess Puzzles in Terminal
+
+# Set up
+## Step 1
 ```
 git clone https://github.com/MilesJuddPorter/chessTerm.git
 cd chessTerm
-go run main.go chessboard.go 
+go build -o chessTerm
+sudo mv chessTerm /usr/local/bin/
 ```
+## Step 2
+- ```cd puzzles; pwd```
+- Copy this so you can add it to your .zshrc or .bashrc below
+- ```export CHESSTERM_PUZZLES_DIR="[output from pwd]"```
+## Step 3
+- Run the program! ```chessTerm -elo 1200``` (or any elo you want to play)
 
 ## Outputs
-<img width="821" alt="Screenshot 2024-07-04 at 5 26 20 PM" src="https://github.com/MilesJuddPorter/chessTerm/assets/13202373/c8ea0d55-30d8-40a0-ba08-c7704a613381">
-<img width="968" alt="Screenshot 2024-07-04 at 5 26 45 PM" src="https://github.com/MilesJuddPorter/chessTerm/assets/13202373/94d8b860-15c3-45a1-a61c-1fc91cf056da">
-
-
-## What is FEN?
-"FEN is the abbreviation of Forsyth-Edwards Notation, and it is the standard notation to describe positions of a chess game. Steven J. Edwards, a computer programmer, created this notation system based on another system designed by the journalist David Forsyth. Edwards modified the older notation system so that chess software could use it." <br>
-https://www.chess.com/terms/fen-chess
+<img width="1370" alt="Screenshot 2024-07-06 at 11 33 49 AM" src="https://github.com/MilesJuddPorter/chessTerm/assets/13202373/48fd0067-9ee1-456a-8b0e-c1e3ba218cdd">
+<img width="935" alt="Screenshot 2024-07-06 at 11 34 15 AM" src="https://github.com/MilesJuddPorter/chessTerm/assets/13202373/7039108f-5371-4286-a41b-ca593a130c07">
 
 
 ## Other Information
-I just made this as my first ever go project to learn, feel free to do anything with it. <br>
-I might look to add lichess puzzles to this (from their open sourced collection) so you can do lichess puzzles from the terminal
+- I just made this as my first go project to learn, feel free to do anything with it.
+- This project uses lichess' open sourced puzzles
+- Next steps are to add a player elo that will change as they play more puzzles, and to not show puzzles the player has already completed
