@@ -70,6 +70,7 @@ func NewFENChessboard(fenString string) *Chessboard {
 // GetFormattedBoard returns a formatted string representation of the chessboard
 func (cb *Chessboard) GetFormattedBoard() string {
 	var formattedStr string
+	
 	for rank, row := range cb.Board {
 		for fileNum, square := range row.Row {
 			if fileNum == 7 {
@@ -82,19 +83,22 @@ func (cb *Chessboard) GetFormattedBoard() string {
 			}
 		}
 	}
+	reset := "\033[0m"
+	white := "\033[33m"
+	black := "\033[35m"
 	SymbolMapper := map[string]string{
-		"R": "\u265C",
-		"N": "\u265E",
-		"B": "\u265D",
-		"Q": "\u265B",
-		"K": "\u265A",
-		"P": "\u265F",
-		"r": "\u2656",
-		"n": "\u2658",
-		"b": "\u2657",
-		"q": "\u2655",
-		"k": "\u2654",
-		"p": "\u2659",
+		"R": white+"\u265C"+reset,
+		"N": white+"\u265E"+reset,
+		"B": white+"\u265D"+reset,
+		"Q": white+"\u265B"+reset,
+		"K": white+"\u265A"+reset,
+		"P": white+"\u265F"+reset,
+		"r": black+"\u265C"+reset,
+		"n": black+"\u265E"+reset,
+		"b": black+"\u265D"+reset,
+		"q": black+"\u265B"+reset,
+		"k": black+"\u265A"+reset,
+		"p": black+"\u265F"+reset,
 	}
 
 	for textChar, symbolChar := range SymbolMapper {
